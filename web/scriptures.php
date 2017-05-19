@@ -1,5 +1,5 @@
 <?php
-$pass="Inthenavy15"
+$pass="53247736113d300994a1897a4ea11b45fef4df4028ca7947d16ce9bc97ac8e2b"
 ?>
 
 <!DOCTYPE html>
@@ -13,7 +13,7 @@ $pass="Inthenavy15"
 <?php
 	try{
 
-		$db = new PDO("pgsql:host=localhost;port=5432;dbname=scriptures;", "postgresql-concentric-32341", $pass);
+		$db = new PDO("pgsql:host=ec2-54-221-255-153.compute-1.amazonaws.com;dbname=scriptures;", "postgresql-concentric-32341", $pass);
 
 
 	}
