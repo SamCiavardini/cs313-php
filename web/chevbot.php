@@ -1,5 +1,5 @@
 <?php
-$pass="Inthenavy15"
+$pass="53247736113d300994a1897a4ea11b45fef4df4028ca7947d16ce9bc97ac8e2b"
 ?>
 
 <!DOCTYPE html>
@@ -20,13 +20,12 @@ $pass="Inthenavy15"
 	<a href='browsebytopic.php?topic=2'>Religion</a><br>
 	<a href='browsebytopic.php?topic=3'>Funny</a><br>
 	<a href='browsebytopic.php?topic=4'>Politics</a><br>
-
 </div>
 <div class="main">
 <?php
 	try{
 
-		$db = new PDO("pgsql:host=localhost;port=5432;dbname=chevbot;", "postgres", $pass);
+		$db = new PDO("pgsql:host=ec2-54-221-255-153.compute-1.amazonaws.com;dbname=dcej0ad937ahgp;", "ghgozncuniefut", $pass);
 
 
 	}
