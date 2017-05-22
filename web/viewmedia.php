@@ -36,7 +36,7 @@ $pass="53247736113d300994a1897a4ea11b45fef4df4028ca7947d16ce9bc97ac8e2b"
 
 	foreach ($db->query("SELECT * FROM post WHERE id = ". $id) as $thepost){
   		echo "<h1>" . $thepost[title] . "</h1><br><img src='" . $thepost[thumbnail] . "'/><h2>" 
-  		. $thepost[subtitle] . "</h2><br/>";
+  		. $thepost[subtitle] . "</h2>";
 	}?>
 
 	<h3>Topics:</h3>
@@ -47,7 +47,7 @@ $pass="53247736113d300994a1897a4ea11b45fef4df4028ca7947d16ce9bc97ac8e2b"
 			echo "<strong>" . $topicName[topicname] . ", </strong>";
 		}
 	}
-	foreach ($db->query("SELECT content FROM post WHERE post_id = " . $id) as $post){
+	foreach ($db->query("SELECT content FROM post WHERE id = " . $id) as $post){
 		echo $post[content];
 	}
 	?>
