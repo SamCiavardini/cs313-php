@@ -22,6 +22,7 @@ $pass="53247736113d300994a1897a4ea11b45fef4df4028ca7947d16ce9bc97ac8e2b"
 	<a href='browsebytopic.php?topic=4'>Politics</a><br><hr>
 	<br>
 	<a href='submit.php'>Make a Submission</a>
+
 </div>
 <div class="main">
 <?php
@@ -31,20 +32,37 @@ $pass="53247736113d300994a1897a4ea11b45fef4df4028ca7947d16ce9bc97ac8e2b"
 	catch(PDOException $ex){
 		echo "error: " . $ex->getMessage();
 	}
-	foreach ($db->query('SELECT * FROM post') as $row)
-	{
-  		echo "<div class='articlecard'><a href='viewmedia.php?item=" . $row['id'] ."'><h1>" 
-  		. $row['title'] . "</h1><img class='cardthumb' src='"
-  		. $row['thumbnail'] . "'/><br><h2>" 
-  		. $row['subtitle'] ."</h2></a>"
-  		. $row['date'] . "<br><img class='thumbicon' src='thumbsup.png'/>" 
-  		. $row['thumbsup'] . " <img class='thumbicon' src='thumbsdown.png'/>"
-  		. $row['thumbsdown'] . "</div>";
-  		
-  		
-  		echo '<br/>';
-	}
-?>
+	?><br>
+	<h1>Make a Submission</h1>
+	<form action="submitarticle.php" method="post"><br>
+		<strong>Type:</strong><br>
+		<select name="type">
+			<?php
+			foreach ($db->query('SELECT typename, id FROM type')as $type){
+			echo "<option value='" . $type['id'] ."'>" . $type['typename'] . "</option><br>";
+			}?>
+		</select><br><br>
+		<strong>Title:</strong><br>
+		<input type="text" name="title"><br><br>
+
+		<strong>Subtitle:</strong>
+		<br><input type="text" name="subtitle"><br><br>
+		
+		<strong>Content:</strong><br>
+		<textarea name="content"></textarea><br><br>
+		<strong>Select topics related to your article:</strong><br><br>
+
+		<?php
+			foreach ($db->query('SELECT topicname, id FROM topic')as $topic){
+				echo "<input type=checkbox name='topics[]' value='" . $topic['id'] ."'>" . $topic['topicname'] . "<br>";
+			}
+		?>
+		<br>
+
+	<input type="submit">
+	
+	</form>
+
 </div>
 	
 </body>
