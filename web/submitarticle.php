@@ -54,4 +54,5 @@
 <div class="main">
 <h1>Thank you for your submission!</h1>
 <h2>Please press here to return to the main page:</h2>
+<a href="chevbot.php">Main Page</a>
 </div>
